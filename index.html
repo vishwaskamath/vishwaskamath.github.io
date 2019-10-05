@@ -1,61 +1,42 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Home</title>
     <meta charset="utf-8">
-
-
     <style>
         body,
         html {
             height: 100%;
             margin: 0;
         }
-
         img {
             border-radius: 90%;
         }
-
-        .button {
-            background-color: black;
-            /* Green */
-            color: white;
-            padding: 16px 32px;
-            text-align: center;
-            display: inline;
-            font-size: 16px;
-            margin: 20px 5px;
-            margin-left: 5px;
-            cursor: pointer;
-        }
-
         .image {
             margin-left: 50px;
-            margin-top: 100px;
+            margin-top: 20px;
             top: 50px;
             left: 50px;
+            background-attachment: fixed;
             border-radius: 30%;
         }
-
         .para {
             margin-left: 45px;
             margin-top: 150px;
             top: 50px;
             left: 50px;
-            font-color: white;
+            color: #007bb5;
         }
-
         .bg {
             background-image: url("bgimage.png");
-            height: 100%;
+            height: 50%;
             background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
 
+            background-size: cover;
+            background-attachment: fixed;
+        }
         .fa {
             padding: 20px;
             font-size: 20px;
@@ -65,80 +46,104 @@
             margin: 12px 5px;
             border-radius: 50%;
         }
-
         .fa:hover {
-            opacity: 0.7;
+            opacity: 0.4;
         }
-
         .fa-facebook {
             background: #007bb5;
             color: white;
         }
-
         .fa-twitter {
             background: #007bb5;
             color: white;
         }
-
         .fa-github {
             background: #007bb5;
             color: white;
         }
-
         .fa-linkedin {
             background: #007bb5;
             color: white;
         }
-
         .fa-instagram {
             background: #007bb5;
             color: white;
         }
+        .button {
+            display: inline-block;
+            border-radius: 10px;
+            background-color:  #007bb5;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 25px;
+            padding: 5px;
+            width: 200px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+        .button:hover span {
+            padding-right: 25px;
+        }
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
     </style>
 </head>
-
 <body style="background-color:black;">
-
-
     <div class="bg">
-        <div class="image">
+        <div class="image" style="margin-left:820px">
             <img src="vis.png" width="350px" height="350px" alt="vishwaskamath">
         </div>
-        <div class="para" style="margin-left:60px">
-            <p>
-                <font size="10" color="white">Hello, I am M Vishwas Kamath.<br>"A Budding Engineer and Tech Enthusiast."
-                </font>
-            </p>
-            <p>
-                <font size="5" color="white">Check my resume by clicking here!</font>
-                <div class="button" style="margin-left:50px">
-                    <a href="https://drive.google.com/file/d/1BEBOIXn5_u6IA8s7jUHWThVE7TdankGd/view?usp=sharing"
-                        download="File">
-                        <button class="button"><b>RESUME</b></button></a>
+
+        <div style="background-color:black; margin-left: 600px">
+            <div class="para" style="margin-left:10px">
+                <p style="margin-left: 7em">
+                    <font size="10" color="white">Hello, I am M Vishwas Kamath.
+                    </font>
+                </p>
+                <p>
+                    <font size="10" color="white">"A Budding Engineer and Tech Enthusiast."
+                    </font>
+                </p>
+                <div style="background-color:black; margin-left: 180px">
+                    <p>
+                        <font size="5" color="white"> &nbsp; &nbsp; Check my resume by clicking here!</font>
+                        <div class="button" style="margin-left:80px">
+                            <a href="https://tinyurl.com/y3pyvjd9">
+                                &nbsp; &nbsp; <button class="button" style="vertical-align:middle"><span>Resume</span></button></a>
+                        </div>
+                    </p>
+                    <p>
+                        <font size="5" color="white"> &nbsp; &nbsp;Connect with me on Social Media!</font>
+                    </p>
                 </div>
-            </p>
-            <p>
-                <font size="5" color="white">Connect with me on Social Media!</font>
-            </p>
-        </div>
-        <div class="list" style="margin-left:60px">
+            </div>
+            <div class="list" style="margin-left:200px; background-color:black">
                 <a href="https://www.facebook.com/vishwas.kamath.509" class="fa fa-facebook"></a>
                 <a href="https://twitter.com/Vishwaskamath3" class="fa fa-twitter"></a>
                 <a href="https://github.com/vishwaskamath" class="fa fa-github"></a>
                 <a href="https://www.linkedin.com/in/mvishwaskamath/" class="fa fa-linkedin"></a>
                 <a href="https://www.instagram.com/vishwas_kamath/" class="fa fa-instagram"></a>
+
             </div>
-
+        </div>
     </div>
-    
-
-
-
-   
-
-
-
-
 </body>
-
 </html>
