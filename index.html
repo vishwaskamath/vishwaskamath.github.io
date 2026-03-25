@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M Vishwas Kamath | Backend Engineer</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    
     <style>
         :root {
             --bg-dark: #0a0a0a;
@@ -62,6 +68,21 @@
 
         span.purple { color: var(--accent-purple); }
 
+        /* General Panel Styling */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: var(--glass-glow);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .glass-panel:hover {
+            transform: translateY(-5px);
+            border-color: rgba(168, 85, 247, 0.5);
+        }
+
         /* --- HERO SECTION --- */
         #hero {
             min-height: 100vh;
@@ -74,17 +95,17 @@
             padding: 80px 0;
         }
         
-        .profile-img-container {
+        .hero-img-container {
             width: 180px;
             height: 180px;
             border-radius: 50%;
-            padding: 5px;
+            padding: 4px;
             background: linear-gradient(135deg, var(--accent-purple), var(--accent-glow));
             margin-bottom: 30px;
             box-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
         }
         
-        .profile-img-container img {
+        .hero-img-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -137,19 +158,49 @@
             grid-template-columns: 1fr 1fr;
             gap: 40px;
         }
-        .glass-panel {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            padding: 35px;
-            border-radius: 16px;
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed rgba(168, 85, 247, 0.3);
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            overflow: hidden;
+            position: relative;
+        }
+        /* When an image is placed inside the placeholder, it will fit perfectly */
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* --- GITHUB ACTIVITY SECTION --- */
+        #github { padding: 60px 0; }
+        .github-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .github-card img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s;
             box-shadow: var(--glass-glow);
-            transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        .glass-panel:hover {
-            transform: translateY(-5px);
-            border-color: rgba(168, 85, 247, 0.5);
-        }
+        .github-card img:hover { transform: scale(1.02); }
 
         /* --- WORK EXPERIENCE TIMELINE --- */
         #experience { padding: 80px 0; }
@@ -189,35 +240,55 @@
             left: 0;
             color: var(--accent-purple);
         }
+        /* Highlighting important numbers */
+        .highlight { color: var(--accent-purple); font-weight: 600; }
 
-        /* --- SKILLS SECTION --- */
+        /* --- SKILLS SECTION (WITH WEB LOGOS) --- */
         #skills { padding: 80px 0; }
         .skills-category {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
         .skills-category h3 {
             color: var(--accent-glow);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-size: 1.2rem;
             font-weight: 400;
         }
         .skills-flex {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 15px;
         }
-        .skill-pill {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            color: var(--text-light);
+        .skill-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            width: 100px;
+            height: 100px;
             transition: all 0.3s;
         }
-        .skill-pill:hover {
-            background: rgba(168, 85, 247, 0.15);
+        .skill-box:hover {
+            background: rgba(168, 85, 247, 0.1);
             border-color: var(--accent-purple);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(168, 85, 247, 0.2);
+        }
+        .skill-box i {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: var(--accent-glow);
+        }
+        .skill-box span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-align: center;
+        }
+        .skill-box:hover i, .skill-box:hover span {
             color: #fff;
         }
 
@@ -236,10 +307,9 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s;
+            transition: color 0.3s;
         }
-        .project-link:hover { border-color: var(--accent-glow); }
+        .project-link:hover { color: #fff; text-decoration: underline; }
 
         /* --- FOOTER --- */
         footer {
@@ -248,14 +318,21 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             background: rgba(0, 0, 0, 0.5);
         }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
         .social-links a {
             color: var(--text-muted);
-            margin: 0 15px;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s;
+            font-size: 1.1rem;
         }
         .social-links a:hover { color: var(--accent-purple); }
+        .social-links i { margin-right: 8px; }
 
         @media (max-width: 768px) {
             #hero h1 { font-size: 3rem; }
@@ -267,8 +344,8 @@
 
     <div class="container">
         <section id="hero" class="hidden">
-            <div class="profile-img-container">
-                <img src="vishwas.jpg" alt="M Vishwas Kamath">
+            <div class="hero-img-container">
+                <img src="vishwas.jpeg" alt="M Vishwas Kamath">
             </div>
             
             <div class="subtitle">Software Engineer</div>
@@ -283,10 +360,28 @@
                 <div class="glass-panel">
                     <h3 style="margin-bottom: 15px; color: var(--accent-glow); font-weight: 400;">Professional Philosophy</h3>
                     <p style="color: var(--text-muted);">I'm a backend-focused Software Engineer who believes in building robust, maintainable architecture. I enjoy the calm clarity of transforming complex legacy platforms into streamlined microservices. Whether it's optimizing GraphQL queries or designing fault-tolerant workflows, I aim for solutions that are as elegant as they are functional.</p>
+                    
+                    <div class="image-placeholder">
+                          <img src="about1.png" alt="Professional Philosophy">
+                        </div>
                 </div>
+                
                 <div class="glass-panel">
                     <h3 style="margin-bottom: 15px; color: var(--accent-glow); font-weight: 400;">Life Off-Screen</h3>
                     <p style="color: var(--text-muted);">A coastal boy from Kundapura. When I step away from the IDE, I'm usually lost in a good book, tracking personal finance and the markets, working toward my goals in the gym, or taking my Royal Enfield Classic 350 for a relaxed ride along the coast.</p>
+                    
+                    <div class="image-placeholder">
+                       <img src="about2.png" alt="Life Off-Screen">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="github" class="hidden">
+            <h2 style="text-align: center; display: block; border: none; margin-bottom: 20px;">Open Source <span class="purple">Activity</span></h2>
+            <div class="github-grid">
+                <div class="github-card" style="text-align: center;">
+                    <img src="https://github-readme-streak-stats.herokuapp.com/?user=vishwaskamath&theme=radical&hide_border=true&background=0a0a0a&ring=a855f7&fire=d8b4fe&currStreakLabel=a855f7" alt="GitHub Streak" style="max-width: 500px;" />
                 </div>
             </div>
         </section>
@@ -298,15 +393,15 @@
                     <div class="timeline-title">HashedIn by Deloitte</div>
                     <div class="timeline-role">Software Engineer II (Promoted: Associate &rarr; SDE I &rarr; SDE II) | Mar 2022 – Present</div>
                     <ul class="timeline-metrics">
-                        <li>Engineered and supported high-throughput, distributed backend systems handling up to 30 million requests per day, with 80k–100k requests per minute during peak traffic, ensuring consistent performance and availability in production.</li>
-                        <li>Designed and optimized GraphQL-based read and write workflows, achieving p95 latency under 9 ms for read queries and under 200 ms for mutations/writes through efficient schema design, query optimization, caching, and asynchronous processing.</li>
-                        <li>Played a key role in migrating a legacy monolithic platform to a microservices architecture using Java Spring Boot, GraphQL, and PostgreSQL, improving service isolation, scalability, and achieving a 60% improvement in system reliability.</li>
-                        <li>Led performance optimization initiatives by introducing multithreading, asynchronous execution, caching, reducing overall API response time from ~1000 ms to ~200 ms and supporting a 35% increase in traffic with zero downtime.</li>
-                        <li>Strengthened system resilience by implementing Resilience4j patterns (circuit breakers, retries, and time limiters), ensuring graceful degradation and stability of critical user journeys during downstream service failures.</li>
-                        <li>Acted as the primary technical point of contact for client teams, directly gathering requirements, discussing production issues, triaging critical bugs, and driving solution design and implementation to meet business timelines.</li>
-                        <li>Owned and resolved production-critical issues, performing root-cause analysis using Honeycomb, Splunk, Grafana, and AWS CloudWatch, and delivering timely fixes to maintain system stability during peak usage.</li>
-                        <li>Owned technical leadership for a team of 5 engineers and mentored 10+ junior developers, driving code quality through reviews, unblocking critical production issues, and supporting daily development tasks to ensure timely and reliable feature delivery.</li>
-                        <li>Authored and maintained technical documentation covering service architecture, performance considerations, and best practices, supporting smoother onboarding and knowledge sharing across teams.</li>
+                        <li>Engineered and supported high-throughput, distributed backend systems handling up to <span class="highlight">30 million requests</span> per day, ensuring consistent performance in production.</li>
+                        <li>Designed and optimized GraphQL-based workflows, achieving p95 latency under <span class="highlight">9 ms</span> for read queries and under <span class="highlight">200 ms</span> for writes through caching and asynchronous processing.</li>
+                        <li>Migrated a legacy monolithic platform to a microservices architecture using Java Spring Boot, GraphQL, and PostgreSQL, achieving a <span class="highlight">60% improvement</span> in system reliability.</li>
+                        <li>Led performance initiatives reducing overall API response time from ~1000 ms to ~200 ms and supporting a <span class="highlight">35% increase</span> in traffic with zero downtime.</li>
+                        <li>Strengthened system resilience by implementing Resilience4j patterns (circuit breakers, retries, time limiters) during downstream failures.</li>
+                        <li>Acted as primary technical point of contact for client teams, gathering requirements and triaging critical bugs.</li>
+                        <li>Owned and resolved production issues using Honeycomb, Splunk, Grafana, and AWS CloudWatch.</li>
+                        <li>Provided technical leadership for a team of 5 engineers and mentored 10+ junior developers, driving code quality through reviews.</li>
+                        <li>Authored comprehensive technical documentation covering architecture and performance considerations.</li>
                     </ul>
                 </div>
             </div>
@@ -319,61 +414,58 @@
                 <div class="skills-category">
                     <h3>Programming</h3>
                     <div class="skills-flex">
-                        <span class="skill-pill">Java</span>
-                        <span class="skill-pill">JavaScript</span>
-                        <span class="skill-pill">Solidity</span>
+                        <div class="skill-box"><i class="devicon-java-plain"></i><span>Java</span></div>
+                        <div class="skill-box"><i class="devicon-javascript-plain"></i><span>JavaScript</span></div>
+                        <div class="skill-box"><i class="devicon-solidity-plain"></i><span>Solidity</span></div>
+                        <div class="skill-box"><i class="devicon-python-plain"></i><span>Python</span></div>
+                        <div class="skill-box"><i class="devicon-cplusplus-plain"></i><span>C++</span></div>
                     </div>
                 </div>
 
                 <div class="skills-category">
                     <h3>Frameworks</h3>
                     <div class="skills-flex">
-                        <span class="skill-pill">Spring Boot</span>
-                        <span class="skill-pill">GraphQL</span>
-                        <span class="skill-pill">REST APIs</span>
-                        <span class="skill-pill">Node.js</span>
-                        <span class="skill-pill">Express.js</span>
-                        <span class="skill-pill">React.js</span>
+                        <div class="skill-box"><i class="devicon-spring-original"></i><span>Spring Boot</span></div>
+                        <div class="skill-box"><i class="devicon-graphql-plain"></i><span>GraphQL</span></div>
+                        <div class="skill-box"><i class="devicon-nodejs-plain"></i><span>Node.js</span></div>
+                        <div class="skill-box"><i class="devicon-express-original"></i><span>Express.js</span></div>
+                        <div class="skill-box"><i class="devicon-react-original"></i><span>React.js</span></div>
                     </div>
                 </div>
 
                 <div class="skills-category">
                     <h3>Databases & Cloud</h3>
                     <div class="skills-flex">
-                        <span class="skill-pill">PostgreSQL</span>
-                        <span class="skill-pill">MySQL</span>
-                        <span class="skill-pill">MongoDB</span>
-                        <span class="skill-pill">Redis</span>
-                        <span class="skill-pill">AWS (EC2, S3, CloudWatch)</span>
+                        <div class="skill-box"><i class="devicon-postgresql-plain"></i><span>PostgreSQL</span></div>
+                        <div class="skill-box"><i class="devicon-mysql-plain"></i><span>MySQL</span></div>
+                        <div class="skill-box"><i class="devicon-mongodb-plain"></i><span>MongoDB</span></div>
+                        <div class="skill-box"><i class="devicon-redis-plain"></i><span>Redis</span></div>
+                        <div class="skill-box"><i class="devicon-amazonwebservices-original"></i><span>AWS</span></div>
                     </div>
                 </div>
 
                 <div class="skills-category">
                     <h3>Tools & Observability</h3>
                     <div class="skills-flex">
-                        <span class="skill-pill">Git</span>
-                        <span class="skill-pill">Maven</span>
-                        <span class="skill-pill">JUnit</span>
-                        <span class="skill-pill">Mockito</span>
-                        <span class="skill-pill">Honeycomb</span>
-                        <span class="skill-pill">Splunk</span>
-                        <span class="skill-pill">Grafana</span>
-                        <span class="skill-pill">Postman</span>
-                        <span class="skill-pill">IntelliJ IDEA</span>
-                        <span class="skill-pill">VS Code</span>
+                        <div class="skill-box"><i class="devicon-git-plain"></i><span>Git</span></div>
+                        <div class="skill-box"><i class="devicon-maven-plain"></i><span>Maven</span></div>
+                        <div class="skill-box"><i class="devicon-splunk-plain"></i><span>Splunk</span></div>
+                        <div class="skill-box"><i class="devicon-grafana-original"></i><span>Grafana</span></div>
+                        <div class="skill-box"><i class="devicon-postman-plain"></i><span>Postman</span></div>
+                        <div class="skill-box"><i class="devicon-intellij-plain"></i><span>IntelliJ</span></div>
+                        <div class="skill-box"><i class="devicon-vscode-plain"></i><span>VS Code</span></div>
                     </div>
                 </div>
 
                 <div class="skills-category" style="margin-bottom: 0;">
                     <h3>Architecture & Practices</h3>
                     <div class="skills-flex">
-                        <span class="skill-pill">Microservices Architecture</span>
-                        <span class="skill-pill">Performance Optimization</span>
-                        <span class="skill-pill">Asynchronous Processing</span>
-                        <span class="skill-pill">Caching</span>
-                        <span class="skill-pill">Resilience4j</span>
-                        <span class="skill-pill">Agile Methodologies</span>
-                        <span class="skill-pill">SOLID Principles</span>
+                        <div class="skill-box"><i class="fas fa-network-wired"></i><span>Microservices</span></div>
+                        <div class="skill-box"><i class="fas fa-bolt"></i><span>Performance</span></div>
+                        <div class="skill-box"><i class="fas fa-sync"></i><span>Async Process</span></div>
+                        <div class="skill-box"><i class="fas fa-memory"></i><span>Caching</span></div>
+                        <div class="skill-box"><i class="fas fa-shield-alt"></i><span>Resilience4j</span></div>
+                        <div class="skill-box"><i class="fas fa-cubes"></i><span>SOLID</span></div>
                     </div>
                 </div>
 
@@ -383,26 +475,34 @@
         <section id="projects" class="hidden">
             <h2>Featured <span class="purple">Projects</span></h2>
             <div class="projects-grid">
+                
                 <div class="glass-panel project-card hidden">
+                    <div class="image-placeholder" style="height: 160px;">
+                        <img src="kharcha.png" alt="Kharca Expense Tracker">
+                        </div>
                     <h3>Kharca</h3>
                     <p>A sleek, optimized expense tracker engineered to manage and visualize personal financial budgets seamlessly.</p>
-                    <a href="https://github.com/vishwaskamath/kharca" class="project-link">View Repository &rarr;</a>
+                    <a href="https://github.com/vishwaskamath/kharca" class="project-link" target="_blank">View Repository &rarr;</a>
                 </div>
+
                 <div class="glass-panel project-card hidden">
-                    <h3>Networth</h3>
-                    <p>Full-stack application monitoring personal net worth and asset allocation to track financial growth over time.</p>
-                    <a href="https://github.com/vishwaskamath/networth" class="project-link">View Repository &rarr;</a>
+                    <div class="image-placeholder" style="height: 160px;">
+                        <img src="dark.png" alt="Dark Theme Repository">
+                        </div>
+                    <h3>Dark</h3>
+                    <p>A clean and customizable theme repository demonstrating modern UI design and styling principles.</p>
+                    <a href="https://github.com/vishwaskamath/dark" class="project-link" target="_blank">View Repository &rarr;</a>
                 </div>
+
                 <div class="glass-panel project-card hidden">
+                    <div class="image-placeholder" style="height: 160px;">
+                        <img src="ballebaazi-game.png" alt="Ballebaazi Game">
+                        </div>
                     <h3>Ballebaazi-Mobile</h3>
                     <p>A dynamic, mobile-first application bringing the classic hand cricket game into a digital, interactive environment.</p>
-                    <a href="https://github.com/vishwaskamath/ballebaazi-mobile" class="project-link">View Repository &rarr;</a>
+                    <a href="https://github.com/vishwaskamath/ballebaazi-mobile" class="project-link" target="_blank">View Repository &rarr;</a>
                 </div>
-                <div class="glass-panel project-card hidden">
-                    <h3>Crowdfund</h3>
-                    <p>A responsive, JavaScript-driven platform architected to facilitate and manage community crowdfunding campaigns.</p>
-                    <a href="https://github.com/vishwaskamath/crowdfund" class="project-link">View Repository &rarr;</a>
-                </div>
+
             </div>
         </section>
 
@@ -410,12 +510,12 @@
 
     <footer>
         <div class="social-links">
-            <a href="https://github.com/vishwaskamath">GitHub</a>
-            <a href="https://www.linkedin.com/in/mvishwaskamath/">LinkedIn</a>
-            <a href="https://leetcode.com/u/kamathcodes/">LeetCode</a>
-            <a href="mailto:kamathvishwasm@gmail.com">Email</a>
+            <a href="https://github.com/vishwaskamath" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/mvishwaskamath/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://leetcode.com/u/kamathcodes/" target="_blank"><i class="fas fa-code"></i> LeetCode</a>
+            <a href="mailto:kamathvishwasm@gmail.com"><i class="fas fa-envelope"></i> Email</a>
         </div>
-        <p style="margin-top: 25px; color: #555; font-size: 0.85rem;">Designed by M Vishwas Kamath</p>
+        <p style="color: #555; font-size: 0.85rem;">Designed by M Vishwas Kamath</p>
     </footer>
 
     <script>
