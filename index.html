@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M Vishwas Kamath | Backend Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #050505;
-            --bg-gradient: radial-gradient(circle at top, #1a0000 0%, #050505 50%);
-            --accent-red: #ff003c;
-            --text-light: #f0f0f0;
-            --text-muted: #888888;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 0, 60, 0.3);
-            --glass-glow: 0 0 20px rgba(255, 0, 60, 0.15);
+            --bg-dark: #0a0a0a;
+            --bg-gradient: radial-gradient(circle at top, #1a0b2e 0%, #0a0a0a 60%);
+            --accent-purple: #a855f7;
+            --accent-glow: #d8b4fe;
+            --text-light: #fdfdfd;
+            --text-muted: #a3a3a3;
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(168, 85, 247, 0.2);
+            --glass-glow: 0 4px 30px rgba(168, 85, 247, 0.1);
         }
 
         * {
@@ -28,15 +29,15 @@
             background: var(--bg-dark);
             background-image: var(--bg-gradient);
             color: var(--text-light);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
         /* Scroll Animations */
         .hidden {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(30px);
+            transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .show {
             opacity: 1;
@@ -50,152 +51,211 @@
         }
 
         h2 {
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
             margin-bottom: 40px;
             display: inline-block;
-            border-bottom: 3px solid var(--accent-red);
-            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-purple);
+            padding-bottom: 8px;
+            font-weight: 600;
         }
 
-        span.red { color: var(--accent-red); }
+        span.purple { color: var(--accent-purple); }
 
         /* --- HERO SECTION --- */
         #hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
+            text-align: center;
             position: relative;
+            padding: 80px 0;
         }
+        
+        .profile-img-container {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-glow));
+            margin-bottom: 30px;
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
+        }
+        
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--bg-dark);
+        }
+
         #hero h1 {
-            font-size: 5rem;
-            font-weight: 900;
-            line-height: 1.1;
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.2;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
         }
         #hero .subtitle {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
+            color: var(--accent-glow);
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+        .hero-text {
+            max-width: 650px;
             color: var(--text-muted);
-            margin-bottom: 30px;
-            letter-spacing: 1px;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
         }
         .btn {
             display: inline-block;
-            padding: 12px 30px;
-            background: transparent;
+            padding: 12px 35px;
+            background: rgba(168, 85, 247, 0.1);
             color: var(--text-light);
-            border: 2px solid var(--accent-red);
-            text-transform: uppercase;
-            font-weight: 700;
+            border: 1px solid var(--accent-purple);
+            border-radius: 30px;
+            font-weight: 600;
             text-decoration: none;
             letter-spacing: 1px;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
             box-shadow: var(--glass-glow);
         }
         .btn:hover {
-            background: var(--accent-red);
+            background: var(--accent-purple);
             color: #fff;
-            box-shadow: 0 0 20px var(--accent-red);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+            transform: translateY(-2px);
         }
 
         /* --- ABOUT SECTION --- */
-        #about { padding: 100px 0; }
+        #about { padding: 80px 0; }
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 40px;
         }
         .glass-panel {
             background: var(--glass-bg);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
-            padding: 30px;
-            border-radius: 12px;
+            padding: 35px;
+            border-radius: 16px;
             box-shadow: var(--glass-glow);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
         .glass-panel:hover {
             transform: translateY(-5px);
-            border-color: var(--accent-red);
+            border-color: rgba(168, 85, 247, 0.5);
         }
 
-        /* --- EXPERIENCE TIMELINE --- */
-        #experience { padding: 100px 0; background: rgba(0,0,0,0.4); }
+        /* --- WORK EXPERIENCE TIMELINE --- */
+        #experience { padding: 80px 0; }
         .timeline {
-            border-left: 2px solid var(--accent-red);
-            padding-left: 30px;
-            margin-left: 20px;
+            border-left: 2px solid rgba(168, 85, 247, 0.3);
+            padding-left: 35px;
+            margin-left: 15px;
         }
         .timeline-item {
             position: relative;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -39px;
-            top: 0;
-            width: 16px;
-            height: 16px;
-            background: var(--accent-red);
+            left: -42px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-purple);
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent-red);
+            box-shadow: 0 0 10px var(--accent-purple);
         }
-        .timeline-title { font-size: 1.5rem; font-weight: 700; color: #fff; }
-        .timeline-role { color: var(--accent-red); font-weight: 700; margin-bottom: 10px; }
-        .timeline-metrics li { margin-bottom: 8px; color: var(--text-muted); margin-left: 20px;}
+        .timeline-title { font-size: 1.4rem; font-weight: 600; color: #fff; }
+        .timeline-role { color: var(--accent-glow); font-weight: 400; margin-bottom: 15px; font-size: 1.1rem; }
+        .timeline-metrics { list-style-type: none; }
+        .timeline-metrics li { 
+            margin-bottom: 12px; 
+            color: var(--text-muted); 
+            position: relative;
+            padding-left: 20px;
+            line-height: 1.6;
+        }
+        .timeline-metrics li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-purple);
+        }
 
-        /* --- SKILLS GRID --- */
-        #skills { padding: 100px 0; }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+        /* --- SKILLS SECTION --- */
+        #skills { padding: 80px 0; }
+        .skills-category {
+            margin-bottom: 30px;
         }
-        .skill-card {
-            text-align: center;
-            font-weight: 700;
-            font-size: 1.1rem;
+        .skills-category h3 {
+            color: var(--accent-glow);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+        .skills-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .skill-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            transition: all 0.3s;
+        }
+        .skill-pill:hover {
+            background: rgba(168, 85, 247, 0.15);
+            border-color: var(--accent-purple);
+            color: #fff;
         }
 
         /* --- PROJECTS SECTION --- */
-        #projects { padding: 100px 0; background: rgba(0,0,0,0.4); }
+        #projects { padding: 80px 0; }
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
-        .project-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
-        .project-card p { color: var(--text-muted); margin-bottom: 20px; }
+        .project-card h3 { font-size: 1.4rem; margin-bottom: 12px; font-weight: 600; }
+        .project-card p { color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem; }
         .project-link {
-            color: var(--accent-red);
+            display: inline-block;
+            color: var(--accent-glow);
             text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
+            font-weight: 600;
             font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
         }
-        .project-link:hover { text-decoration: underline; }
+        .project-link:hover { border-color: var(--accent-glow); }
 
         /* --- FOOTER --- */
         footer {
-            padding: 40px 0;
+            padding: 50px 0;
             text-align: center;
-            border-top: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.5);
         }
         .social-links a {
-            color: var(--text-light);
+            color: var(--text-muted);
             margin: 0 15px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
             transition: color 0.3s;
         }
-        .social-links a:hover { color: var(--accent-red); }
+        .social-links a:hover { color: var(--accent-purple); }
 
         @media (max-width: 768px) {
             #hero h1 { font-size: 3rem; }
@@ -207,58 +267,121 @@
 
     <div class="container">
         <section id="hero" class="hidden">
-            <div class="subtitle">System Architect & Developer</div>
-            <h1>M VISHWAS <br><span class="red">KAMATH</span></h1>
-            <p class="subtitle" style="max-width: 600px; font-size: 1.2rem;">Engineering high-throughput backend systems handling millions of requests with ruthless efficiency.</p>
-            <a href="#about" class="btn">Ignite the Engine</a>
+            <div class="profile-img-container">
+                <img src="vishwas.jpg" alt="M Vishwas Kamath">
+            </div>
+            
+            <div class="subtitle">Software Engineer</div>
+            <h1>M VISHWAS <span class="purple">KAMATH</span></h1>
+            <p class="hero-text">I enjoy crafting clean, scalable, and resilient backend systems. Passionate about problem-solving and building elegant solutions for complex environments.</p>
+            <a href="#experience" class="btn">Explore My Work</a>
         </section>
 
         <section id="about" class="hidden">
-            <h2>The <span class="red">Driver</span> Behind the Code</h2>
+            <h2>The <span class="purple">Developer</span></h2>
             <div class="about-grid">
                 <div class="glass-panel">
-                    <h3 style="margin-bottom: 15px; color: var(--accent-red);">Professional Horsepower</h3>
-                    <p style="color: var(--text-muted);">I specialize in tearing down legacy monoliths and designing scalable, fault-tolerant microservices. I thrive in environments where performance is critical—optimizing database queries, managing asynchronous workflows, and building resilient APIs that don't just work, but work perfectly under intense pressure.</p>
+                    <h3 style="margin-bottom: 15px; color: var(--accent-glow); font-weight: 400;">Professional Philosophy</h3>
+                    <p style="color: var(--text-muted);">I'm a backend-focused Software Engineer who believes in building robust, maintainable architecture. I enjoy the calm clarity of transforming complex legacy platforms into streamlined microservices. Whether it's optimizing GraphQL queries or designing fault-tolerant workflows, I aim for solutions that are as elegant as they are functional.</p>
                 </div>
                 <div class="glass-panel">
-                    <h3 style="margin-bottom: 15px; color: var(--accent-red);">Life off the Grid</h3>
-                    <p style="color: var(--text-muted);">A proud coastal boy hailing from Kundapura. When I close my IDE, my focus shifts to mastering PySpark fundamentals, analyzing personal finance and market trends, hitting the gym, or taking my Royal Enfield Classic 350 out onto the open road.</p>
+                    <h3 style="margin-bottom: 15px; color: var(--accent-glow); font-weight: 400;">Life Off-Screen</h3>
+                    <p style="color: var(--text-muted);">A coastal boy from Kundapura. When I step away from the IDE, I'm usually lost in a good book, tracking personal finance and the markets, working toward my goals in the gym, or taking my Royal Enfield Classic 350 for a relaxed ride along the coast.</p>
                 </div>
             </div>
         </section>
 
         <section id="experience" class="hidden">
-            <h2>Track <span class="red">Record</span></h2>
+            <h2>Work <span class="purple">Experience</span></h2>
             <div class="timeline">
                 <div class="timeline-item hidden">
                     <div class="timeline-title">HashedIn by Deloitte</div>
-                    <div class="timeline-role">Software Engineer II (Assoc &rarr; SDE I &rarr; SDE II)</div>
+                    <div class="timeline-role">Software Engineer II (Promoted: Associate &rarr; SDE I &rarr; SDE II) | Mar 2022 – Present</div>
                     <ul class="timeline-metrics">
-                        <li>Engineered distributed backend systems processing up to 30 million daily requests.</li>
-                        <li>Led monolithic to microservices migrations using Java Spring Boot and PostgreSQL, boosting reliability by 60%.</li>
-                        <li>Slashed API response times from ~1000ms down to ~200ms using multithreading, caching, and async execution.</li>
-                        <li>Optimized GraphQL read/write workflows, hitting sub-9ms read latency at p95.</li>
+                        <li>Engineered and supported high-throughput, distributed backend systems handling up to 30 million requests per day, with 80k–100k requests per minute during peak traffic, ensuring consistent performance and availability in production.</li>
+                        <li>Designed and optimized GraphQL-based read and write workflows, achieving p95 latency under 9 ms for read queries and under 200 ms for mutations/writes through efficient schema design, query optimization, caching, and asynchronous processing.</li>
+                        <li>Played a key role in migrating a legacy monolithic platform to a microservices architecture using Java Spring Boot, GraphQL, and PostgreSQL, improving service isolation, scalability, and achieving a 60% improvement in system reliability.</li>
+                        <li>Led performance optimization initiatives by introducing multithreading, asynchronous execution, caching, reducing overall API response time from ~1000 ms to ~200 ms and supporting a 35% increase in traffic with zero downtime.</li>
+                        <li>Strengthened system resilience by implementing Resilience4j patterns (circuit breakers, retries, and time limiters), ensuring graceful degradation and stability of critical user journeys during downstream service failures.</li>
+                        <li>Acted as the primary technical point of contact for client teams, directly gathering requirements, discussing production issues, triaging critical bugs, and driving solution design and implementation to meet business timelines.</li>
+                        <li>Owned and resolved production-critical issues, performing root-cause analysis using Honeycomb, Splunk, Grafana, and AWS CloudWatch, and delivering timely fixes to maintain system stability during peak usage.</li>
+                        <li>Owned technical leadership for a team of 5 engineers and mentored 10+ junior developers, driving code quality through reviews, unblocking critical production issues, and supporting daily development tasks to ensure timely and reliable feature delivery.</li>
+                        <li>Authored and maintained technical documentation covering service architecture, performance considerations, and best practices, supporting smoother onboarding and knowledge sharing across teams.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <section id="skills" class="hidden">
-            <h2>Technical <span class="red">Arsenal</span></h2>
-            <div class="skills-grid">
-                <div class="glass-panel skill-card hidden">Java & Spring Boot</div>
-                <div class="glass-panel skill-card hidden">GraphQL & REST</div>
-                <div class="glass-panel skill-card hidden">PostgreSQL & Redis</div>
-                <div class="glass-panel skill-card hidden">Microservices</div>
-                <div class="glass-panel skill-card hidden">Resilience4j & Caching</div>
-                <div class="glass-panel skill-card hidden">JavaScript & React</div>
-                <div class="glass-panel skill-card hidden">Python & C++</div>
-                <div class="glass-panel skill-card hidden">AWS & CI/CD</div>
+            <h2>Technical <span class="purple">Skills</span></h2>
+            <div class="glass-panel">
+                
+                <div class="skills-category">
+                    <h3>Programming</h3>
+                    <div class="skills-flex">
+                        <span class="skill-pill">Java</span>
+                        <span class="skill-pill">JavaScript</span>
+                        <span class="skill-pill">Solidity</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Frameworks</h3>
+                    <div class="skills-flex">
+                        <span class="skill-pill">Spring Boot</span>
+                        <span class="skill-pill">GraphQL</span>
+                        <span class="skill-pill">REST APIs</span>
+                        <span class="skill-pill">Node.js</span>
+                        <span class="skill-pill">Express.js</span>
+                        <span class="skill-pill">React.js</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Databases & Cloud</h3>
+                    <div class="skills-flex">
+                        <span class="skill-pill">PostgreSQL</span>
+                        <span class="skill-pill">MySQL</span>
+                        <span class="skill-pill">MongoDB</span>
+                        <span class="skill-pill">Redis</span>
+                        <span class="skill-pill">AWS (EC2, S3, CloudWatch)</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Tools & Observability</h3>
+                    <div class="skills-flex">
+                        <span class="skill-pill">Git</span>
+                        <span class="skill-pill">Maven</span>
+                        <span class="skill-pill">JUnit</span>
+                        <span class="skill-pill">Mockito</span>
+                        <span class="skill-pill">Honeycomb</span>
+                        <span class="skill-pill">Splunk</span>
+                        <span class="skill-pill">Grafana</span>
+                        <span class="skill-pill">Postman</span>
+                        <span class="skill-pill">IntelliJ IDEA</span>
+                        <span class="skill-pill">VS Code</span>
+                    </div>
+                </div>
+
+                <div class="skills-category" style="margin-bottom: 0;">
+                    <h3>Architecture & Practices</h3>
+                    <div class="skills-flex">
+                        <span class="skill-pill">Microservices Architecture</span>
+                        <span class="skill-pill">Performance Optimization</span>
+                        <span class="skill-pill">Asynchronous Processing</span>
+                        <span class="skill-pill">Caching</span>
+                        <span class="skill-pill">Resilience4j</span>
+                        <span class="skill-pill">Agile Methodologies</span>
+                        <span class="skill-pill">SOLID Principles</span>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <section id="projects" class="hidden">
-            <h2>The <span class="red">Garage</span></h2>
+            <h2>Featured <span class="purple">Projects</span></h2>
             <div class="projects-grid">
                 <div class="glass-panel project-card hidden">
                     <h3>Kharca</h3>
@@ -292,14 +415,14 @@
             <a href="https://leetcode.com/u/kamathcodes/">LeetCode</a>
             <a href="mailto:kamathvishwasm@gmail.com">Email</a>
         </div>
-        <p style="margin-top: 20px; color: var(--text-muted); font-size: 0.9rem;">Engineered by M Vishwas Kamath</p>
+        <p style="margin-top: 25px; color: #555; font-size: 0.85rem;">Designed by M Vishwas Kamath</p>
     </footer>
 
     <script>
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.15
+            threshold: 0.1
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
